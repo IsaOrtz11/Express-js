@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const estudiantesController = require('../controllers/estudiantesController')
+const authMiddleware = require('../middlewares/authMiddleware'); 
+
 // reuperar estudiantes
-router.get('/', estudiantesController.consultar)
+router.get('/', authMiddleware, estudiantesController.consultar)
 
 
 
